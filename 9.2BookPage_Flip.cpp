@@ -11,9 +11,10 @@ public:
         pagesLeft = pages;
         cout << "Pages left to read: " << pagesLeft << endl;
     }
-    void operator + ()
+    void operator ~ ()
     {
-        pagesLeft = MAX_PAGES;
+        pagesLeft -= 1;
+        cout<<pagesLeft;
     }
 };
 int main() 
@@ -26,8 +27,7 @@ int main()
     Book myBook;
     cout << "Before flipping the book:" << endl;
     myBook.Display(pages);
-    +myBook;
-    cout << "After flipping the book:" << endl;
-    myBook.Display(x);
+    cout << "After flipping the book: ";
+    ~myBook;
     return 0;
 }
