@@ -42,7 +42,6 @@ public:
         cin>>gender;
         cout<<"\n\tYour details are safe with us.\n"<<endl;
     }
-    //friend void instruction(details instruct);
 };
 
 int details ::c_id;
@@ -116,7 +115,7 @@ public:
                 cout<<"\nPress any key to go back to the main menu "<<endl;
                 cin>>Back;
 
-                if(Back==1)
+                if(Back==getchar())
                 {
                     mainMenu();
                 }
@@ -172,13 +171,13 @@ public:
                 cout<<"\nPress any key to go back to the main menu "<<endl;
                 cin>>Back;
 
-                if(Back==1)
+                if(Back == 1)
                 {
                     mainMenu();
                 }
                 else
                 {
-                    mainMenu();
+                    cout<<"Please follow the instructions or get help."<<endl;
                 }
                  break;
             }
