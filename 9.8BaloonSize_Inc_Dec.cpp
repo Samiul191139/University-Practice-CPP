@@ -23,7 +23,7 @@ public:
             cout << "Error: Balloon is too large!" << endl;
         }
     }
-    void operator-() 
+    void operator-()
     {
         const int shrinkAmount = 3;
         if (size - shrinkAmount >= 5) 

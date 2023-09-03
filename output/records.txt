@@ -1,0 +1,11 @@
+___________________ABC Airlines___________________
+____________________Ticket_________________________
+___________________________________________________
+Customer ID     :1223
+Customer Name   :adad adada
+Customer Gender :sfsfs
+	Description
+
+Destination :		Dubai
+
+Flight cost :		70000

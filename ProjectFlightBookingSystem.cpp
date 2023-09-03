@@ -1,64 +1,64 @@
 #include<iostream>
 #include<fstream>
 #include<iomanip>
+
 using namespace std;
 
 void mainMenu();
-class Management
+class Management // class used
 {
 public:
 
-    Management()
+    Management() //constructor is used
     {
-        cout<<endl;
-        cout<<"******** Please follow these Instructions given below:     ********"<<endl;
         mainMenu();
     }
 };
 
-class details
+
+class details //class used
 {
-public:
-    static string name,gender;
+public: //access spacifier
+    static string name,gender; //static data member used
     int phoneNo;
     int age;
     string address;
-    static int c_id;
+    static int c_id; //static data member used
     char arr[100];
 
-    void information()
+    void information() //member function
     {
         cout<<"\nEnter the customer ID :";
         cin>>c_id;
         cin.ignore();
         cout<<"\nEnter the Name        :";
-        getline(cin, name);
+        getline(cin, name);                         //getline used to take input properly
         cout<<"\nEnter Age             :";
         cin>>age;
         cin.ignore();
         cout<<"\nEnter Address         :";
-        getline(cin, address);
+        getline(cin, address);                       //getline used to take input properly
         cout<<"\nGender                :";
         cin>>gender;
         cout<<"\n\tYour details are safe with us.\n"<<endl;
     }
 };
 
-int details ::c_id;
-string details :: name;
-string details :: gender;
+int details ::c_id;    // as it is declared as static variable in a class
+string details :: name;  // as it is declared as static variable in a class
+string details :: gender;  // as it is declared as static variable in a class
 
-class registration
+class registration          //class used
 {
-public:
-    static int choice;
+public:        //access spacifier
+    static int choice;   //static data member used
     int choice1;
-    int Back;
+    string Back;
     static float charges;
 
-    void flights()
+    void flights()              //member function
     {
-        string flightN[]={"Dubai","Canada","UK","USA","Australia","Europe"};
+        string flightN[]={"Dubai","Canada","UK","USA","Australia","Europe"};        //array of string
         for(int i=0;i<6;i++)
         {
             cout<<(i+1)<<".  flight to "<<flightN[i]<<endl;
@@ -71,7 +71,7 @@ public:
         {
         case 1:
             {
-                cout<<"\n_______Welcome to Dubai Emirates________\n"<<endl;
+                cout<<"\n____________________Welcome to Dubai Emirates_____________________\n"<<endl;
 
                 cout<<"Your comfort is our priority. Enjoy the journey!"<<endl;
 
@@ -115,7 +115,7 @@ public:
                 cout<<"\nPress any key to go back to the main menu "<<endl;
                 cin>>Back;
 
-                if(Back==getchar())
+                if(Back=="1")
                 {
                     mainMenu();
                 }
@@ -127,7 +127,7 @@ public:
             }
         case 2:
             {
-                  cout<<"\n_______Welcome to Canadian Airlines________\n"<<endl;
+                  cout<<"\n____________________Welcome to Canadian Airlines_____________________\n"<<endl;
 
                 cout<<"Your comfort is our priority. Enjoy the journey!"<<endl;
 
@@ -171,20 +171,20 @@ public:
                 cout<<"\nPress any key to go back to the main menu "<<endl;
                 cin>>Back;
 
-                if(Back == 1)
+                if(Back=="1")
                 {
                     mainMenu();
                 }
                 else
                 {
-                    cout<<"Please follow the instructions or get help."<<endl;
+                    mainMenu();
                 }
                  break;
             }
 
         case 3:
             {
-                cout<<"\n_______Welcome UK Airways________\n"<<endl;
+                cout<<"\n____________________Welcome UK Airways_____________________\n"<<endl;
 
                 cout<<"Your comfort is our priority. Enjoy the journey!"<<endl;
 
@@ -222,7 +222,7 @@ public:
                 cout<<"\nPress any key to go back to the main menu "<<endl;
                 cin>>Back;
 
-                if(Back==1)
+                if(Back=="1")
                 {
                     mainMenu();
                 }
@@ -234,7 +234,7 @@ public:
             }
         case 4:
             {
-                cout<<"\n_______Welcome to US Airways________\n"<<endl;
+                cout<<"\n____________________Welcome to US Airways_____________________\n"<<endl;
 
                 cout<<"Your comfort is our priority. Enjoy the journey!"<<endl;
 
@@ -278,7 +278,7 @@ public:
                 cout<<"\nPress any key to go back to the main menu "<<endl;
                 cin>>Back;
 
-                if(Back==1)
+                if(Back=="1")
                 {
                     mainMenu();
                 }
@@ -290,7 +290,7 @@ public:
             }
         case 5:
             {
-                 cout<<"\n_______Welcome to Australian Airlines________\n"<<endl;
+                 cout<<"\n____________________Welcome to Australian Airlines_____________________\n"<<endl;
 
                 cout<<"Your comfort is our priority. Enjoy the journey!"<<endl;
 
@@ -334,7 +334,7 @@ public:
                 cout<<"\nPress any key to go back to the main menu "<<endl;
                 cin>>Back;
 
-                if(Back==1)
+                if(Back=="1")
                 {
                     mainMenu();
                 }
@@ -346,7 +346,7 @@ public:
             }
         case 6:
             {
-                cout<<"\n_______Welcome to European Airlines________\n"<<endl;
+                cout<<"\n____________________Welcome to European Airlines_____________________\n"<<endl;
 
                 cout<<"Your comfort is our priority. Enjoy the journey!"<<endl;
 
@@ -390,7 +390,7 @@ public:
                 cout<<"\nPress any key to go back to the main menu "<<endl;
                 cin>>Back;
 
-                if(Back==1)
+                if(Back=="1")
                 {
                     mainMenu();
                 }
@@ -412,27 +412,27 @@ public:
     }
 };
 
-float registration ::charges;
-int registration::choice;
+float registration ::charges; // as it is declared as static variable in a class
+int registration::choice;   // as it is declared as static variable in a class
 
-class ticket : public registration,details
+class ticket : public registration,details  //ticket class is inheriting both registration and details class. Multiple inheritance is used here.
 {
 public:
     void Bill()
     {
         string destination="";
-        ofstream outf("records.txt");
+        ofstream outf("records.txt");   //for file writting opeing
         {
-            outf<<"______ABC Airlines______"<<endl;
-            outf<<"_______Ticket________"<<endl;
-            outf<<"_________________"<<endl;
+            outf<<"___________________ABC Airlines___________________"<<endl;
+            outf<<"____________________Ticket_________________________"<<endl;
+            outf<<"___________________________________________________"<<endl;
 
-            outf<<"Customer ID     :"<<details::c_id<<endl;
-            outf<<"Customer Name   :"<<details::name<<endl;
-            outf<<"Customer Gender :"<<details::gender<<endl;
+            outf<<"Customer ID     :"<<details::c_id<<endl;     //scope resulation operator is used for accessing the static value in details class
+            outf<<"Customer Name   :"<<details::name<<endl;     //scope resulation operator is used for accessing the static value in details class
+            outf<<"Customer Gender :"<<details::gender<<endl;   //scope resulation operator is used for accessing the static value in details class
             outf<<"\tDescription\n"<<endl;
 
-            if(registration::choice==1)
+            if(registration::choice==1)           //scope resulation operator is used for accessing the static value in registration class
             {
                 destination="Dubai\n";
             }
@@ -444,7 +444,7 @@ public:
             {
                 destination="UK\n";
             }
-            else if(registration::choice==4)
+            else if(registration::choice==4)        //scope resulation operator is used for accessing the static value in registration class
             {
                 destination="USA\n";
             }
@@ -452,7 +452,7 @@ public:
             {
                 destination="Australia\n";
             }
-            else if(registration::choice==6)
+            else if(registration::choice==6)        //scope resulation operator is used for accessing the static value in registration class
             {
                 destination="Europe\n";
             }
@@ -461,12 +461,12 @@ public:
             outf<<"Flight cost :\t\t"<<registration::charges<<endl;
 
         }
-        outf.close();
+        outf.close();       //for closing file
     }
 
     void disBill()
     {
-        ifstream ifs("records.txt");
+        ifstream ifs("records.txt");        //for file reading opeing
         {
             if(!ifs)
             {
@@ -478,7 +478,7 @@ public:
                 cout<<arr<<endl;
             }
         }
-        ifs.close();
+        ifs.close();        //for closing file
 
     }
 
@@ -486,12 +486,13 @@ public:
 
 void mainMenu()
 {
-    int Lchoice, BAck;
+    int Lchoice;
+    string BAck;
     cout<<endl;
     cout<<"\t               ABC Airlines \n"<<endl;
-    cout<<"\t _____Main Menu_____"<<endl;
+    cout<<"\t ________________Main Menu________________"<<endl;
 
-    cout<<"\t__________________ "<<endl;
+    cout<<"\t________________________________________________ "<<endl;
 
     cout<<"\t|\t\t\t\t\t\t|"<<endl;
 
@@ -499,25 +500,25 @@ void mainMenu()
     cout<<"\t|\t Press 2 for Flight Registration     \t|"<<endl;
     cout<<"\t|\t Press 3 for Ticket and Charges      \t|"<<endl;
     cout<<"\t|\t Press 4 to Exit                     \t|"<<endl;
-    cout<<"\t|_________________|"<<endl;
+    cout<<"\t|_______________________________________________|"<<endl;
 
     cout<<"\nEnter the Choice : ";
     cin>>Lchoice;
 
-    details d;
-    registration r;
-    ticket t;
+    details d;              // object of details class
+    registration r;         // object of registration class
+    ticket t;               // object of  ticket class
 
     switch(Lchoice)
     {
     case 1:
         {
-            cout<<"\n\t\t_____Customers____\n"<<endl;
-            d.information();
+            cout<<"\n\t\t__________Customers___________\n"<<endl;
+            d.information();                                        //information function is called by the object of details class
             cout<<"Presss any key to go back to the Main manu ";
             cin>>BAck;
 
-            if(BAck==1)
+            if(BAck=="1")
             {
                 mainMenu();
             }
@@ -530,27 +531,27 @@ void mainMenu()
 
     case 2:
         {
-            cout<<"___Book a fight using this system___\n"<<endl;
-            r.flights();
+            cout<<"__________Book a fight using this system__________\n"<<endl;
+            r.flights();                                                        //flights function is called by the object of registration class
             break;
 
         }
     case 3:
         {
-            cout<<"___Get your ticket____\n"<<endl;
-            t.Bill();
+            cout<<"________Get your ticket_________\n"<<endl;
+            t.Bill();                                                           //Bill function is called by the object of ticket class
 
-            cout<<"Your ticket is printed. You are now elligible to collect it.\n"<<endl;
+            cout<<"Your ticket is printed,you can collect it\n"<<endl;
             cout<<"Press 1 to display your ticket\t";
 
             cin>>BAck;
 
-            if(BAck==1)
+            if(BAck=="1")
             {
-                t.disBill();
+                t.disBill();                                                          //disBill function is called by the object of ticket class
                 cout<<"Presss any key to go back to the Main manu"<<endl;
                 cin>>BAck;
-                if(BAck==1)
+                if(BAck=="1")
                 {
                     mainMenu();
                 }
@@ -568,7 +569,7 @@ void mainMenu()
         }
     case 4:
         {
-            cout<<"\n\n\t____THANK YOU____"<<endl;
+            cout<<"\n\n\t_________THANK YOU___________"<<endl;
             break;
         }
     default :
@@ -582,7 +583,9 @@ void mainMenu()
 }
 int main()
 {
-    Management mobj;
+
+    Management mobj;            //object of Management class
+
 
 
 
